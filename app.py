@@ -70,16 +70,27 @@ st.markdown("<p style='text-align: center; color: #c4b5fd; font-size: 13px;'>Fin
 st.divider()
 
 # Patient Profile Section
-st.markdown("<h2>👤 Alex Ray, Age 7</h2>", unsafe_allow_html=True)
+st.markdown("""
+<div style='background: linear-gradient(135deg, #1e3a8a, #1e40af); 
+            padding: 20px; 
+            border-radius: 15px; 
+            border: 2px solid #60a5fa;
+            text-align: center;
+            margin: 15px 0;'>
+    <p style='font-size: 24px; color: #93c5fd; margin: 0; font-weight: bold;'>👤 Patient Information</p>
+    <p style='font-size: 32px; color: #60a5fa; margin: 10px 0; font-weight: bold;'>Alex Ray</p>
+    <p style='font-size: 18px; color: #bfdbfe; margin: 5px 0;'>Age: <span style='font-weight: bold;'>7 years old</span></p>
+</div>
+""", unsafe_allow_html=True)
 
-# Stats Section - single row on mobile
+# Stats Section - side by side
 col1, col2 = st.columns(2)
 
 with col1:
-    st.metric(label="Sessions", value="24", label_visibility="collapsed")
+    st.metric(label="📊 Total Sessions", value="24")
 
 with col2:
-    st.metric(label="Play Time", value="6.2h", label_visibility="collapsed")
+    st.metric(label="⏱️ Play Time", value="6.2h")
 
 st.divider()
 
