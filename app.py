@@ -84,31 +84,29 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Stats Section - side by side with borders
-col1, col2 = st.columns([1, 1])
+col1, col2 = st.columns([1, 1], gap="small")
 
 with col1:
     st.markdown("""
     <div style='background: rgba(30, 58, 138, 0.8); 
-                padding: 20px; 
+                padding: 15px; 
                 border-radius: 12px; 
                 border: 2px solid #60a5fa;
-                text-align: center;
-                margin-right: 10px;'>
-        <p style='font-size: 13px; color: #93c5fd; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>📊 Total Sessions</p>
-        <p style='font-size: 40px; color: #60a5fa; margin: 10px 0; font-weight: bold;'>24</p>
+                text-align: center;'>
+        <p style='font-size: 11px; color: #93c5fd; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;'>📊 Sessions</p>
+        <p style='font-size: 32px; color: #60a5fa; margin: 8px 0; font-weight: bold;'>24</p>
     </div>
     """, unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
     <div style='background: rgba(131, 24, 67, 0.8); 
-                padding: 20px; 
+                padding: 15px; 
                 border-radius: 12px; 
                 border: 2px solid #ec4899;
-                text-align: center;
-                margin-left: 10px;'>
-        <p style='font-size: 13px; color: #f472b6; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>⏱️ Play Time</p>
-        <p style='font-size: 40px; color: #f472b6; margin: 10px 0; font-weight: bold;'>6.2h</p>
+                text-align: center;'>
+        <p style='font-size: 11px; color: #f472b6; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;'>⏱️ Time</p>
+        <p style='font-size: 32px; color: #f472b6; margin: 8px 0; font-weight: bold;'>6.2h</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -247,8 +245,8 @@ with col_qr:
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,
-        box_size=8,
-        border=2,
+        box_size=6,
+        border=1,
     )
     qr.add_data(qr_url)
     qr.make(fit=True)
@@ -259,12 +257,19 @@ with col_qr:
     img.save(buf, format='PNG')
     buf.seek(0)
     
-    # Center the QR code
-    col_space1, col_qr_img, col_space2 = st.columns([1, 2, 1])
+    # Center the QR code - smaller on mobile
+    col_space1, col_qr_img, col_space2 = st.columns([0.8, 1.4, 0.8])
     with col_qr_img:
         st.image(buf, use_container_width=True)
     
-    st.markdown(f"<p style='text-align: center; color: #60a5fa; font-size: 10px; word-break: break-all;'>{qr_url}</p>", unsafe_allow_html=True)
+    # Clickable link that's responsive
+    st.markdown(f"""
+    <div style='text-align: center;'>
+        <a href='{qr_url}' target='_blank' style='color: #60a5fa; text-decoration: none; font-size: 12px; word-break: break-all;'>
+            {qr_url}
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.divider()
 st.markdown("<p style='text-align: center; color: #64748b; font-size: 10px;'>© 2025 Dragon Therapy</p>", unsafe_allow_html=True)
