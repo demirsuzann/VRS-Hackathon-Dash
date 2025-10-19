@@ -84,12 +84,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Stats Section - side by side
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns([1, 1, 1])
 
 with col1:
     st.metric(label="📊 Total Sessions", value="24")
 
 with col2:
+    st.empty()
+
+with col3:
     st.metric(label="⏱️ Play Time", value="6.2h")
 
 st.divider()
