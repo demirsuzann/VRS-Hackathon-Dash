@@ -1,14 +1,13 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-from datetime import datetime, timedelta
 import qrcode
 from io import BytesIO
-import base64
+from PIL import Image
 
 # Set page config
 st.set_page_config(
-    page_title="Dino Keeper Dashboard",
+    page_title="Dragon Therapy Dashboard",
     page_icon="🦕",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -96,10 +95,10 @@ st.markdown("""
 # Title with dragon emoji
 col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
-    st.markdown("<div style='text-align: center; font-size: 120px; margin: 20px 0;'>🦕</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-size: 80px; margin: 10px 0;'>🦕</div>", unsafe_allow_html=True)
 
-st.markdown("<h1>Dino Keeper</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #c4b5fd; font-size: 18px;'>Clinical Dashboard - Fine Motor Skill Tracking & Progress Analytics</p>", unsafe_allow_html=True)
+st.markdown("<h1>Dragon Therapy</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #c4b5fd; font-size: 16px;'>Clinical Dashboard</p>", unsafe_allow_html=True)
 
 # Patient Profile Section
 st.markdown("<h2>👤 Patient Profile</h2>", unsafe_allow_html=True)
@@ -283,14 +282,15 @@ with col2:
         qr.add_data(qr_url)
         qr.make(fit=True)
         
-        img = qr.make_image(fill_color="#60a5fa", back_color="#0f172a")
+        # Use standard black and white for better scanning
+        img = qr.make_image(fill_color="black", back_color="white")
         
         # Convert to bytes
         buf = BytesIO()
         img.save(buf, format='PNG')
         buf.seek(0)
         
-        st.image(buf, width=300)
+        st.image(buf, width=280)
         st.markdown(f"<p style='text-align: center; color: #60a5fa; font-size: 12px;'>{qr_url}</p>", unsafe_allow_html=True)
         
     except Exception as e:
