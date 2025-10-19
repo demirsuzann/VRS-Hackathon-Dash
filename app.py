@@ -272,7 +272,7 @@ with col2:
     # Generate QR code
     try:
         # Get the Streamlit app URL
-        qr_url = "https://dino-keeper-dashboard.streamlit.app"  # Update after deployment
+        qr_url = "https://dragonthearpy.streamlit.app/"
         
         qr = qrcode.QRCode(
             version=1,
