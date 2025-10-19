@@ -83,17 +83,32 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Stats Section - side by side
-col1, col2, col3 = st.columns([1, 1, 1])
+# Stats Section - side by side with borders
+col1, col2 = st.columns(2)
 
 with col1:
-    st.metric(label="📊 Total Sessions", value="24")
+    st.markdown("""
+    <div style='background: rgba(30, 58, 138, 0.8); 
+                padding: 20px; 
+                border-radius: 12px; 
+                border: 2px solid #60a5fa;
+                text-align: center;'>
+        <p style='font-size: 13px; color: #93c5fd; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>📊 Total Sessions</p>
+        <p style='font-size: 40px; color: #60a5fa; margin: 10px 0; font-weight: bold;'>24</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col2:
-    st.empty()
-
-with col3:
-    st.metric(label="⏱️ Play Time", value="6.2h")
+    st.markdown("""
+    <div style='background: rgba(131, 24, 67, 0.8); 
+                padding: 20px; 
+                border-radius: 12px; 
+                border: 2px solid #ec4899;
+                text-align: center;'>
+        <p style='font-size: 13px; color: #f472b6; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>⏱️ Play Time</p>
+        <p style='font-size: 40px; color: #f472b6; margin: 10px 0; font-weight: bold;'>6.2h</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.divider()
 
