@@ -84,7 +84,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Stats Section - side by side with borders
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown("""
@@ -92,7 +92,8 @@ with col1:
                 padding: 20px; 
                 border-radius: 12px; 
                 border: 2px solid #60a5fa;
-                text-align: center;'>
+                text-align: center;
+                margin-right: 10px;'>
         <p style='font-size: 13px; color: #93c5fd; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>📊 Total Sessions</p>
         <p style='font-size: 40px; color: #60a5fa; margin: 10px 0; font-weight: bold;'>24</p>
     </div>
@@ -104,7 +105,8 @@ with col2:
                 padding: 20px; 
                 border-radius: 12px; 
                 border: 2px solid #ec4899;
-                text-align: center;'>
+                text-align: center;
+                margin-left: 10px;'>
         <p style='font-size: 13px; color: #f472b6; margin: 0; text-transform: uppercase; letter-spacing: 1px;'>⏱️ Play Time</p>
         <p style='font-size: 40px; color: #f472b6; margin: 10px 0; font-weight: bold;'>6.2h</p>
     </div>
