@@ -190,7 +190,7 @@ with col2:
     img.save(buf, format='PNG')
     buf.seek(0)
     
-    st.image(buf, use_column_width=True, width=200)
+    st.image(buf, use_container_width=True)
     st.markdown(f"<p style='text-align: center; color: #60a5fa; font-size: 11px; word-break: break-all;'>{qr_url}</p>", unsafe_allow_html=True)
 
 st.divider()
